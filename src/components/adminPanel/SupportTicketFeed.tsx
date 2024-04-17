@@ -17,12 +17,10 @@ type FeedProps = {
 
 const SupportTicketFeed = ({ items }: FeedProps) => {
   return (
-    <div>
-      <div>
-        {items.map((item) => (
-          <SupportTicketCard key={item.id} {...item} />
-        ))}
-      </div>
+    <div className="">
+      {items.map((item) => (
+        <SupportTicketCard key={item.id} {...item} />
+      ))}
     </div>
   );
 };
