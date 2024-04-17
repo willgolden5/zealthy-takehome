@@ -1,4 +1,4 @@
-# Will Golden Zealthy Take-home
+# Will Golden Zealthy Take Home Assessment
 
 Runbook:
 
