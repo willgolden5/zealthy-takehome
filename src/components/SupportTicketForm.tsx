@@ -15,6 +15,7 @@ const SupportTicketForm = () => {
       email: form["email"].value,
       description: form["message"].value,
     });
+    form.reset();
   };
   return (
     <div className="w-1/3 py-6">
