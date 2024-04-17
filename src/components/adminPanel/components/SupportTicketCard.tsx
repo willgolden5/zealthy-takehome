@@ -1,4 +1,4 @@
-import { Status } from "@prisma/client";
+import { type Status } from "@prisma/client";
 import { useRouter } from "next/router";
 
 interface CardProps {
@@ -17,7 +17,7 @@ interface CardContentProps {
 }
 
 const CardContent: React.FC<CardContentProps> = ({ children, className }) => {
-  const contentClassName = `p-4 ${className || ""}`;
+  const contentClassName = `p-4 ${className ?? ""}`;
   return <div className={contentClassName}>{children}</div>;
 };
 
@@ -30,7 +30,7 @@ const CardDescription: React.FC<CardDescriptionProps> = ({
   children,
   className,
 }) => {
-  const descriptionClassName = `${className || ""} text-gray-600 `;
+  const descriptionClassName = `${className ?? ""} text-gray-600 `;
   return <p className={descriptionClassName}>{children}</p>;
 };
 
@@ -51,9 +51,8 @@ const SupportTicketCard: React.FC<ComponentProps> = ({
 }) => {
   const router = useRouter();
 
-  const handleClick = () => {
-    router.push(`/ticket/${id}`);
-    console.log("open modal");
+  const handleClick = async () => {
+    await router.push(`/ticket/${id}`).catch(console.error);
   };
   return (
     <div className="w-full max-w-sm py-2" onClick={handleClick}>

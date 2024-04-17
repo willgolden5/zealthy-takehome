@@ -24,12 +24,14 @@ const TicketPage = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
+    const form = e.currentTarget as HTMLFormElement;
+    const response: string = (form.response as HTMLTextAreaElement).value;
     respond.mutate({
       id: numberTicketId,
       status,
-      response: form.response.value,
+      response,
     });
+    console.log("Would normally send email here with body:", response);
     form.reset();
   };
 

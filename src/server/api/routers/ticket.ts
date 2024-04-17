@@ -1,4 +1,4 @@
-import { Status } from "@prisma/client";
+import { type Status } from "@prisma/client";
 import { z } from "zod";
 
 import {
@@ -59,7 +59,7 @@ export const ticketRouter = createTRPCRouter({
         data: {
           responseText: input.response,
           ticketId: input.id,
-          respondedBy: ctx.session.user.email as string,
+          respondedBy: ctx.session.user.email!,
         },
       });
     }),

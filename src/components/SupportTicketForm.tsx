@@ -7,18 +7,15 @@ import Textarea from "./designSystem/TextArea";
 const SupportTicketForm = () => {
   const create = api.ticket.create.useMutation();
 
+  // I would normally be using something like react-hook-form here
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     const form = e.currentTarget;
     e.preventDefault();
     create.mutate({
-      name: `${form["first-name"].value} ${form["last-name"].value}`,
-      email: form["email"].value,
-      description: form["message"].value,
+      name: `${(form.firstName as HTMLInputElement).value} ${(form.lastName as HTMLInputElement).value}`,
+      email: (form.email as HTMLInputElement).value,
+      description: (form.message as HTMLTextAreaElement).value,
     });
-    console.log(
-      "Would normally send email here with body:",
-      form["message"].value,
-    );
     form.reset();
   };
 
@@ -27,19 +24,19 @@ const SupportTicketForm = () => {
       <div className="space-y-4">
         <h1 className="text-3xl font-bold">Submit a ticket</h1>
         <p className="text-gray-500 dark:text-gray-400">
-          Please fill out the form below and we'll get back to you as soon as
+          Please fill out the form below and we will get back to you as soon as
           possible.
         </p>
       </div>
       <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="first-name">First name</Label>
-            <Input id="first-name" placeholder="Enter your first name" />
+            <Label htmlFor="firstName">First name</Label>
+            <Input id="firstName" placeholder="Enter your first name" />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="last-name">Last name</Label>
-            <Input id="last-name" placeholder="Enter your last name" />
+            <Label htmlFor="lastName">Last name</Label>
+            <Input id="lastName" placeholder="Enter your last name" />
           </div>
         </div>
         <div className="space-y-2">

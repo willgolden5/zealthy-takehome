@@ -1,5 +1,5 @@
 import SupportTicketFeed, {
-  FeedData,
+  type FeedData,
 } from "~/components/adminPanel/SupportTicketFeed";
 import { signIn, useSession } from "next-auth/react";
 import { api } from "~/utils/api";
@@ -17,7 +17,7 @@ const AdminPage = () => {
   }
 
   if (status === "unauthenticated") {
-    signIn();
+    signIn().catch(console.error);
   }
 
   return (
