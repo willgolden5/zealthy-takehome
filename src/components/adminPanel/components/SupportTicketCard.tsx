@@ -55,7 +55,7 @@ const SupportTicketCard: React.FC<ComponentProps> = ({
     await router.push(`/ticket/${id}`).catch(console.error);
   };
   return (
-    <div className="w-full max-w-sm py-2" onClick={handleClick}>
+    <div className="w-full max-w-sm cursor-pointer py-2" onClick={handleClick}>
       <Card>
         <CardContent className="flex flex-col gap-1 py-4">
           <div className="pb-2 text-sm font-medium leading-none text-gray-500">
