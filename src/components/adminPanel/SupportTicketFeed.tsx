@@ -17,7 +17,7 @@ type FeedProps = {
 
 const SupportTicketFeed = ({ items }: FeedProps) => {
   return (
-    <div className="">
+    <div>
       {items.map((item) => (
         <SupportTicketCard key={item.id} {...item} />
       ))}

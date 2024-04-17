@@ -11,7 +11,7 @@ const SupportTicketForm = () => {
     const form = e.currentTarget;
     e.preventDefault();
     create.mutate({
-      name: form["first-name"].value,
+      name: `${form["first-name"].value} ${form["last-name"].value}`,
       email: form["email"].value,
       description: form["message"].value,
     });

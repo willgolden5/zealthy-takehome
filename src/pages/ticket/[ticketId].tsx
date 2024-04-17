@@ -32,11 +32,12 @@ const TicketPage = () => {
     });
     form.reset();
   };
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
       <div className="container mx-auto">
         <div className="flex flex-col rounded-md bg-white p-6 shadow-md">
-          <h2 className="mb-4 text-xl font-bold">Support Ticket</h2>
+          <h2 className="mb-4 text-xl font-bold">Support Ticket #{ticketId}</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label
@@ -94,7 +95,6 @@ const TicketPage = () => {
               </div>
             </div>
             <div>
-              {" "}
               <button
                 className="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
                 type="submit"
