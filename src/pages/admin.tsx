@@ -9,7 +9,11 @@ const AdminPage = () => {
   const { status } = useSession();
 
   if (isLoading || status === "loading") {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center">
+        <div>Loading...</div>
+      </div>
+    );
   }
 
   if (status === "unauthenticated") {
