@@ -5,7 +5,7 @@ import Textarea from "./designSystem/TextArea";
 
 const SupportTicketForm = () => {
   return (
-    <div className="w-full py-6">
+    <div className="w-1/3 py-6">
       <div className="space-y-4">
         <h1 className="text-3xl font-bold">Submit a ticket</h1>
         <p className="text-gray-500 dark:text-gray-400">
