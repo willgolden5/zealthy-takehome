@@ -5,14 +5,14 @@ import Textarea from "~/components/designSystem/TextArea";
 import { api } from "~/utils/api";
 
 const TicketPage = () => {
+  const [status, setStatus] = useState("new");
   const router = useRouter();
   const { ticketId } = router.query;
   const numberTicketId = parseInt(ticketId as string, 10);
-
+  const respond = api.ticket.respond.useMutation();
   const { data, isLoading } = api.ticket.getById.useQuery({
     id: numberTicketId,
   });
-  const [status, setStatus] = useState("new");
 
   useEffect(() => {
     data?.status && setStatus(data?.status);
@@ -22,8 +22,15 @@ const TicketPage = () => {
     return <div>Loading...</div>;
   }
 
-  const handleSubmit = (e) => {
-    console.log("submitting");
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    respond.mutate({
+      id: numberTicketId,
+      status,
+      response: form.response.value,
+    });
+    form.reset();
   };
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
@@ -70,6 +77,7 @@ const TicketPage = () => {
                 <select
                   className="focus:shadow-outline block w-full appearance-none rounded border border-gray-400 bg-white px-4 py-2 pr-8 leading-tight shadow hover:border-gray-500 focus:outline-none"
                   value={status}
+                  id="status"
                   onChange={(e) => setStatus(e.target.value)}
                 >
                   <option value="new">New</option>
@@ -78,10 +86,10 @@ const TicketPage = () => {
                 </select>
               </div>
               <div className="w-full pb-2">
-                <Label htmlFor="assignedTo">Response:</Label>
+                <Label htmlFor="response">Response:</Label>
                 <Textarea
                   className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
-                  id="assignedTo"
+                  id="response"
                 />
               </div>
             </div>
