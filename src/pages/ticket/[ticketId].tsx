@@ -1,10 +1,17 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Label from "~/components/designSystem/Label";
 import Textarea from "~/components/designSystem/TextArea";
 import { api } from "~/utils/api";
 
 const TicketPage = () => {
-  const { data, isLoading } = api.ticket.getById.useQuery({ id: 1 });
+  const router = useRouter();
+  const { ticketId } = router.query;
+  const numberTicketId = parseInt(ticketId as string, 10);
+
+  const { data, isLoading } = api.ticket.getById.useQuery({
+    id: numberTicketId,
+  });
   const [status, setStatus] = useState("new");
 
   useEffect(() => {
