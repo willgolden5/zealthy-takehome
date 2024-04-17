@@ -1,3 +1,5 @@
+import { Status } from "@prisma/client";
+
 interface CardProps {
   children: React.ReactNode;
 }
@@ -32,14 +34,14 @@ const CardDescription: React.FC<CardDescriptionProps> = ({
 interface ComponentProps {
   name: string;
   email: string;
-  message: string;
-  status: "new" | "in-progress" | "resolved";
+  description: string;
+  status: Status;
 }
 
 const SupportTicketCard: React.FC<ComponentProps> = ({
   name,
   email,
-  message,
+  description,
   status,
 }) => {
   return (
@@ -50,7 +52,7 @@ const SupportTicketCard: React.FC<ComponentProps> = ({
             <span className="font-semibold">{name}</span>
             {` <${email}>`}
           </div>
-          <CardDescription className="text-sm">{message}</CardDescription>
+          <CardDescription className="text-sm">{description}</CardDescription>
         </CardContent>
         <CardContent className="flex flex-1 items-center justify-center space-x-2 p-4">
           <p>status:</p>

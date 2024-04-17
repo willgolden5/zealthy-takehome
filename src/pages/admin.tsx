@@ -1,32 +1,21 @@
 import SupportTicketFeed, {
   FeedData,
 } from "~/components/adminPanel/SupportTicketFeed";
-
-const feedData: FeedData[] = [
-  {
-    id: 1,
-    name: "Kendall Schmidt",
-    email: "kendall@example.com",
-    message: "My Wi-Fi isn't working. Can you help me out?",
-    status: "new",
-  },
-  {
-    id: 1,
-    name: "Kendall Schmidt",
-    email: "kendall@example.com",
-    message: "My Wi-Fi isn't working. Can you help me out?",
-    status: "resolved",
-  },
-  {
-    id: 1,
-    name: "Kendall Schmidt",
-    email: "kendall@example.com",
-    message: "My Wi-Fi isn't working. Can you help me out?",
-    status: "in-progress",
-  },
-];
+import { signIn, useSession } from "next-auth/react";
+import { api } from "~/utils/api";
 
 const AdminPage = () => {
+  const { data, isLoading } = api.ticket.getAll.useQuery();
+  const { status } = useSession();
+
+  if (isLoading || status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  if (status === "unauthenticated") {
+    signIn();
+  }
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
       <div className="space-y-2">
@@ -35,7 +24,7 @@ const AdminPage = () => {
           Click on a ticket below to view more details.
         </p>
       </div>
-      <SupportTicketFeed items={feedData} />
+      <SupportTicketFeed items={data as FeedData[]} />
     </div>
   );
 };

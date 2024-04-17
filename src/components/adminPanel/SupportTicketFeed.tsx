@@ -1,11 +1,14 @@
+import { Status } from "@prisma/client";
 import SupportTicketCard from "./components/SupportTicketCard";
 
 export type FeedData = {
   id: number;
   name: string;
   email: string;
-  message: string;
-  status: "new" | "in-progress" | "resolved";
+  description: string;
+  status: Status;
+  createdAt: Date;
+  updatedAt: Date;
 };
 
 type FeedProps = {
