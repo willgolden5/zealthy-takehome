@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Button from "~/components/designSystem/Button";
 import Label from "~/components/designSystem/Label";
 import Textarea from "~/components/designSystem/TextArea";
 import { api } from "~/utils/api";
@@ -97,12 +98,12 @@ const TicketPage = () => {
               </div>
             </div>
             <div>
-              <button
+              <Button
                 className="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
                 type="submit"
               >
                 Submit Response
-              </button>
+              </Button>
             </div>
           </form>
         </div>
