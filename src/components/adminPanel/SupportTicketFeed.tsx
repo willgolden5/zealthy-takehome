@@ -14,13 +14,25 @@ export type FeedData = {
 type FeedProps = {
   items: FeedData[];
 };
-
+// sorting this by new > inProgress > resolved.
 const SupportTicketFeed = ({ items }: FeedProps) => {
   return (
     <div>
-      {items.map((item) => (
-        <SupportTicketCard key={item.id} {...item} />
-      ))}
+      {items
+        .sort((a, b) => {
+          if (a.status === "new" && b.status !== "new") {
+            return -1;
+          } else if (a.status === "inProgress" && b.status === "resolved") {
+            return -1;
+          } else if (a.status === "resolved" && b.status !== "resolved") {
+            return 1;
+          } else {
+            return 0;
+          }
+        })
+        .map((item) => (
+          <SupportTicketCard key={item.id} {...item} />
+        ))}
     </div>
   );
 };
