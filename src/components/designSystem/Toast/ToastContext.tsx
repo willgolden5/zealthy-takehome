@@ -3,7 +3,11 @@ import React, { createContext, useReducer, useContext, Dispatch } from "react";
 import { Toast, ToastAction } from "./types";
 
 const ToastStateContext = createContext<Toast[]>([]);
-const ToastDispatchContext = createContext<Dispatch<ToastAction>>(() => {});
+
+const ToastDispatchContext = createContext<Dispatch<ToastAction>>(() => {
+  // Placeholder function for ToastDispatchContext.
+  // This function will be replaced by the actual dispatch function.
+});
 
 const toastReducer = (state: Toast[], action: ToastAction) => {
   switch (action.type) {

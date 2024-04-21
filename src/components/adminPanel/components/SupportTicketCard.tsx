@@ -17,7 +17,7 @@ interface CardContentProps {
 }
 
 const CardContent: React.FC<CardContentProps> = ({ children, className }) => {
-  const contentClassName = `p-4 w-full ${className ?? ""}`;
+  const contentClassName = `p-4 ${className ?? ""}`;
   return <div className={contentClassName}>{children}</div>;
 };
 
@@ -58,7 +58,7 @@ const SupportTicketCard: React.FC<ComponentProps> = ({
   };
   return (
     <div
-      className="w-full max-w-sm cursor-pointer py-2 lg:max-w-xl"
+      className="w-full max-w-sm cursor-pointer py-2 md:max-w-xl"
       onClick={handleClick}
     >
       <Card>
@@ -67,7 +67,7 @@ const SupportTicketCard: React.FC<ComponentProps> = ({
             <span className="pr-1 font-semibold">{name}</span>
             <p className="my-2">{` <${email}>`}</p>
           </div>
-          <CardDescription className="h-full w-full text-sm">
+          <CardDescription className="h-full text-sm">
             {description}
           </CardDescription>
         </CardContent>
