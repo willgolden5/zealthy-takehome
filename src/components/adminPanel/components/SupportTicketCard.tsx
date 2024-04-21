@@ -57,7 +57,7 @@ const SupportTicketCard: React.FC<ComponentProps> = ({
   return (
     <div className="w-full max-w-sm cursor-pointer py-2" onClick={handleClick}>
       <Card>
-        <CardContent className="flex flex-col gap-1 py-4">
+        <CardContent className="mr-auto flex flex-col gap-1 py-4">
           <div className="pb-2 text-sm font-medium leading-none text-gray-500">
             <span className="font-semibold">{name}</span>
             {` <${email}>`}
@@ -66,7 +66,7 @@ const SupportTicketCard: React.FC<ComponentProps> = ({
             {description}
           </CardDescription>
         </CardContent>
-        <CardContent className="flex flex-1 items-center justify-center space-x-2 p-4">
+        <CardContent className="ml-auto flex flex-1 items-center justify-center space-x-2 p-4">
           <p>status:</p>
           <span
             className={`rounded-md border p-1

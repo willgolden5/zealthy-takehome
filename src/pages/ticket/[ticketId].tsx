@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import Button from "~/components/DesignSystem/Button";
 import Label from "~/components/DesignSystem/Label";
 import Textarea from "~/components/DesignSystem/TextArea";
+import { useToast } from "~/hooks/useToast";
 import { api } from "~/utils/api";
 
 const TicketPage = () => {
   const [status, setStatus] = useState("new");
+  const toast = useToast();
   const router = useRouter();
   const { ticketId } = router.query;
   const numberTicketId = parseInt(ticketId as string, 10);
@@ -32,12 +34,27 @@ const TicketPage = () => {
       status,
       response,
     });
+    toast(
+      "Response Submitted",
+      "Your response has been sent to the customer. Thank you!",
+      "info",
+    );
     console.log("Would normally send email here with body:", response);
     form.reset();
   };
 
+  const handleBack = () => {
+    router.back();
+  };
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex min-h-screen flex-col justify-center">
+      <p
+        onClick={handleBack}
+        className="flex cursor-pointer px-8 py-4 text-sm font-bold"
+      >
+        ← Back
+      </p>
       <div className="container mx-auto">
         <div className="flex flex-col rounded-md bg-white p-6 shadow-md">
           <h2 className="mb-4 text-xl font-bold">Support Ticket #{ticketId}</h2>

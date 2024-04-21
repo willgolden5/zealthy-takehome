@@ -19,7 +19,7 @@ const Toast: React.FC<ToastType> = ({ id, type, message, title }) => {
   const bgColor = {
     success: "bg-green-300",
     error: "bg-orange-300",
-    info: "bg-purple-300",
+    info: "bg-yellow-300",
   }[type];
 
   return (
