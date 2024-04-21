@@ -7,9 +7,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ children }) => {
   return (
-    <div className="flex h-28 w-full rounded bg-white p-2 shadow">
-      {children}
-    </div>
+    <div className="flex w-full rounded bg-white p-2 shadow">{children}</div>
   );
 };
 
@@ -66,8 +64,8 @@ const SupportTicketCard: React.FC<ComponentProps> = ({
       <Card>
         <CardContent className="mr-auto flex w-[50%] flex-col gap-1 py-4">
           <div className="pb-2 text-sm font-medium leading-none text-gray-500">
-            <span className="font-semibold">{name}</span>
-            {` <${email}>`}
+            <span className="pr-1 font-semibold">{name}</span>
+            <p className="my-2">{` <${email}>`}</p>
           </div>
           <CardDescription className="h-full w-full text-sm">
             {description}

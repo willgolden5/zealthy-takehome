@@ -15,6 +15,9 @@ type FeedProps = {
   items: FeedData[];
 };
 // sorting this by new > inProgress > resolved.
+
+// I'd likely use a table here for a production application.
+// Given time constraints, I'm opting for a simpler solution.
 const SupportTicketFeed = ({ items }: FeedProps) => {
   return (
     <div className="flex max-h-[725px] flex-col items-center overflow-x-auto p-2 lg:max-h-[90vh]">

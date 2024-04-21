@@ -49,14 +49,14 @@ const TicketPage = () => {
 
   return (
     <div className="flex min-h-screen flex-col justify-center">
-      <p
-        onClick={handleBack}
-        className="flex cursor-pointer px-8 py-4 text-sm font-bold"
-      >
-        ← Back
-      </p>
       <div className="container mx-auto p-2">
-        <div className="flex flex-col rounded-md bg-white p-6 shadow-md">
+        <div className="flex flex-col rounded-md bg-white p-2 shadow-md lg:p-6">
+          <p
+            onClick={handleBack}
+            className="font-md flex w-20 cursor-pointer py-2 text-sm text-gray-500 hover:text-gray-900 "
+          >
+            ← Back
+          </p>
           <h2 className="mb-4 text-xl font-bold">Support Ticket #{ticketId}</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
