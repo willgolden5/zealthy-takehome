@@ -17,7 +17,7 @@ type FeedProps = {
 // sorting this by new > inProgress > resolved.
 const SupportTicketFeed = ({ items }: FeedProps) => {
   return (
-    <div className="flex max-h-[screen-200px] flex-col items-center overflow-x-auto p-2">
+    <div className="flex max-h-[725px] flex-col items-center overflow-x-auto p-2 lg:max-h-[90vh]">
       {items
         .sort((a, b) => {
           if (a.status === "new" && b.status !== "new") {

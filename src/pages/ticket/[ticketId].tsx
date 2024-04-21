@@ -55,7 +55,7 @@ const TicketPage = () => {
       >
         ← Back
       </p>
-      <div className="container mx-auto">
+      <div className="container mx-auto p-2">
         <div className="flex flex-col rounded-md bg-white p-6 shadow-md">
           <h2 className="mb-4 text-xl font-bold">Support Ticket #{ticketId}</h2>
           <form onSubmit={handleSubmit}>

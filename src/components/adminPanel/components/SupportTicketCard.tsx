@@ -7,7 +7,9 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ children }) => {
   return (
-    <div className="flex h-28 rounded bg-white p-2 shadow">{children}</div>
+    <div className="flex h-28 w-full rounded bg-white p-2 shadow">
+      {children}
+    </div>
   );
 };
 
@@ -30,7 +32,7 @@ const CardDescription: React.FC<CardDescriptionProps> = ({
   children,
   className,
 }) => {
-  const descriptionClassName = `${className ?? ""} text-gray-600 `;
+  const descriptionClassName = `${className ?? ""} text-gray-600 truncate overflow-ellipsis`;
   return <p className={descriptionClassName}>{children}</p>;
 };
 
@@ -51,25 +53,28 @@ const SupportTicketCard: React.FC<ComponentProps> = ({
 }) => {
   const router = useRouter();
 
+  const formattedStatus = status === "inProgress" ? "in-progress" : status;
+
   const handleClick = async () => {
     await router.push(`/ticket/${id}`).catch(console.error);
   };
   return (
     <div className="w-full max-w-sm cursor-pointer py-2" onClick={handleClick}>
       <Card>
-        <CardContent className="mr-auto flex flex-col gap-1 py-4">
+        <CardContent className="mr-auto flex w-[50%] flex-col gap-1 py-4">
           <div className="pb-2 text-sm font-medium leading-none text-gray-500">
             <span className="font-semibold">{name}</span>
             {` <${email}>`}
           </div>
-          <CardDescription className="h-full w-full overflow-hidden overflow-ellipsis text-sm">
+          <CardDescription className="h-full w-full text-sm">
             {description}
           </CardDescription>
         </CardContent>
-        <CardContent className="ml-auto flex flex-1 items-center justify-center space-x-2 p-4">
-          <p>status:</p>
-          <span
-            className={`rounded-md border p-1
+        <CardContent className="ml-auto flex w-[50%]">
+          <div className="ml-auto flex items-center space-x-1">
+            <p className="text-xs font-thin">status:</p>
+            <span
+              className={`rounded-md border p-1
             ${
               status === "new"
                 ? "border-red-500 text-red-500"
@@ -77,10 +82,11 @@ const SupportTicketCard: React.FC<ComponentProps> = ({
                   ? "border-green-500 text-green-500"
                   : "border-blue-500 text-blue-500"
             }
-            text-sm font-semibold`}
-          >
-            {status}
-          </span>
+            h-8 text-sm font-semibold`}
+            >
+              {formattedStatus}
+            </span>
+          </div>
         </CardContent>
       </Card>
     </div>
