@@ -21,7 +21,7 @@ const AdminPage = () => {
   }
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center">
+    <div className="flex h-screen w-full flex-col items-center justify-center">
       <div className="space-y-2">
         <h1 className="text-3xl font-bold">Support Ticket Feed</h1>
         <p className="pb-4 text-gray-500 dark:text-gray-400">

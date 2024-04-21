@@ -19,7 +19,7 @@ interface CardContentProps {
 }
 
 const CardContent: React.FC<CardContentProps> = ({ children, className }) => {
-  const contentClassName = `p-4 ${className ?? ""}`;
+  const contentClassName = `p-4 w-full ${className ?? ""}`;
   return <div className={contentClassName}>{children}</div>;
 };
 
@@ -59,7 +59,10 @@ const SupportTicketCard: React.FC<ComponentProps> = ({
     await router.push(`/ticket/${id}`).catch(console.error);
   };
   return (
-    <div className="w-full max-w-sm cursor-pointer py-2" onClick={handleClick}>
+    <div
+      className="w-full max-w-sm cursor-pointer py-2 lg:max-w-xl"
+      onClick={handleClick}
+    >
       <Card>
         <CardContent className="mr-auto flex w-[50%] flex-col gap-1 py-4">
           <div className="pb-2 text-sm font-medium leading-none text-gray-500">
