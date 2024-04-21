@@ -1,8 +1,8 @@
 import { api } from "~/utils/api";
-import Button from "./designSystem/Button";
-import Input from "./designSystem/Input";
-import Label from "./designSystem/Label";
-import Textarea from "./designSystem/TextArea";
+import Button from "./DesignSystem/Button";
+import Input from "./DesignSystem/Input";
+import Label from "./DesignSystem/Label";
+import Textarea from "./DesignSystem/TextArea";
 
 const SupportTicketForm = () => {
   const create = api.ticket.create.useMutation();
@@ -20,7 +20,7 @@ const SupportTicketForm = () => {
   };
 
   return (
-    <div className="w-1/3 py-6">
+    <div className="xs:w-full p-4 py-6 lg:w-1/3">
       <div className="space-y-4">
         <h1 className="text-3xl font-bold">Submit a ticket</h1>
         <p className="text-gray-500 dark:text-gray-400">

@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Button from "~/components/designSystem/Button";
-import Label from "~/components/designSystem/Label";
-import Textarea from "~/components/designSystem/TextArea";
+import Button from "~/components/DesignSystem/Button";
+import Label from "~/components/DesignSystem/Label";
+import Textarea from "~/components/DesignSystem/TextArea";
 import { api } from "~/utils/api";
 
 const TicketPage = () => {
