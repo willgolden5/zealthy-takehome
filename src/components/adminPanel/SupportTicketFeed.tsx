@@ -16,7 +16,8 @@ type FeedProps = {
 };
 // sorting this by new > inProgress > resolved.
 
-// I'd likely use a table here for a production application.
+// I'd likely use a paginated table here with a search feature(search on name, email, and ticket number) for a production application.
+// I'd also give the user the ability to filter by status and date.
 // Given time constraints, I'm opting for a simpler solution.
 const SupportTicketFeed = ({ items }: FeedProps) => {
   return (
