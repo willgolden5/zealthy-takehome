@@ -3,9 +3,11 @@ import Button from "./DesignSystem/Button";
 import Input from "./DesignSystem/Input";
 import Label from "./DesignSystem/Label";
 import Textarea from "./DesignSystem/TextArea";
+import { useToast } from "~/hooks/useToast";
 
 const SupportTicketForm = () => {
   const create = api.ticket.create.useMutation();
+  const toast = useToast();
 
   // I would normally be using something like react-hook-form here
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -16,6 +18,11 @@ const SupportTicketForm = () => {
       email: (form.email as HTMLInputElement).value,
       description: (form.message as HTMLTextAreaElement).value,
     });
+    toast(
+      "Thank You!",
+      "Your support ticket has been submitted. 🎉",
+      "success",
+    );
     form.reset();
   };
 
