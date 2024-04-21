@@ -1,5 +1,5 @@
-import { useToastDispatchContext } from "~/components/DesignSystem/Toast/ToastContext";
-import { ToastType } from "~/components/DesignSystem/Toast/types";
+import { useToastDispatchContext } from "~/components/designSystem/Toast/ToastContext";
+import { ToastType } from "~/components/designSystem/Toast/types";
 
 export function useToast() {
   const dispatch = useToastDispatchContext();

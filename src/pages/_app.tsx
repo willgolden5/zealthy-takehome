@@ -6,9 +6,9 @@ import { Inter } from "next/font/google";
 import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
-import { ToastProvider } from "~/components/DesignSystem/Toast/ToastContext";
+import { ToastProvider } from "~/components/designSystem/Toast/ToastContext";
 import Head from "next/head";
-import ToastContainer from "~/components/DesignSystem/Toast/ToastContainer";
+import ToastContainer from "~/components/designSystem/Toast/ToastContainer";
 
 const inter = Inter({
   subsets: ["latin"],
