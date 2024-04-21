@@ -1,9 +1,9 @@
 import { api } from "~/utils/api";
 import Textarea from "./DesignSystem/TextArea";
 import { useToast } from "~/hooks/useToast";
-import Label from "./DesignSystem/Label";
-import Input from "./DesignSystem/Input";
-import Button from "./DesignSystem/Button";
+import Label from "@design-system/Label";
+import Input from "@design-system/Input";
+import Button from "@design-system/Button";
 
 const SupportTicketForm = () => {
   const create = api.ticket.create.useMutation();
