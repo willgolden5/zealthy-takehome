@@ -1,5 +1,5 @@
 import { api } from "~/utils/api";
-import Textarea from "./DesignSystem/TextArea";
+import Textarea from "@design-system/TextArea";
 import { useToast } from "~/hooks/useToast";
 import Label from "@design-system/Label";
 import Input from "@design-system/Input";
