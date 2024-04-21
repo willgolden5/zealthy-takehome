@@ -1,6 +1,6 @@
 import SupportTicketFeed, {
   type FeedData,
-} from "~/components/AdminPanel/SupportTicketFeed";
+} from "~/components/adminPanel/SupportTicketFeed";
 import { signIn, useSession } from "next-auth/react";
 import { api } from "~/utils/api";
 
